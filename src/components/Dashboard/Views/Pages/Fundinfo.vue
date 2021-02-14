@@ -144,17 +144,11 @@
 </template>
 <script>
   
-  import TimeLine from './Stats/TimeLine.vue'
-  import TimeLineItem from './Stats/TimeLineItem.vue'
-  import TaskList from './Stats/TaskList'
   import ChartCard from 'src/components/UIComponents/Cards/ChartCard.vue'
 
   export default {
     components: {
-      TimeLine,
-      TimeLineItem,
-      ChartCard,
-      TaskList
+      ChartCard
     },
     methods: {
       toggleNavbar () {
