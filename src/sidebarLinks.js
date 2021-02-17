@@ -9,6 +9,11 @@ export default [
     }]
   },
   {
+    name: 'Purchase',
+    icon: 'ti-arrow-down',
+    path: '/purchase'
+  },
+  {
     name: 'Pages',
     icon: 'ti-gift',
     children: [{

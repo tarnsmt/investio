@@ -64,11 +64,12 @@
                 <div class="col-md-4">
                   <form role="search" >
                     <div class="input-group" style="margin-top:20%">
-                        <div>
-    <b-form-input list="my-list-id"></b-form-input>
-  </div>
-                      <input type="text" value="" placeholder="Fund name or ISIN or Tinker" class="form-control"> <span class="input-group-addon">
-                        <i class="fa fa-search"></i>
+                      <div>
+                        <b-form-input list="my-list-id"></b-form-input>
+                      </div>
+                      <autosuggest-instance :key="1" />
+                      <!-- <input type="text" value="" placeholder="Fund name or ISIN or Tinker" class="form-control"> <span class="input-group-addon"> -->
+                      <!-- <i class="fa fa-search"></i> -->
                       </span>
                     </div>
                   </form>
@@ -138,10 +139,12 @@
 </template>
 <script>
   import TypeValidationForm from './Table/FundTable.vue'
+  import AutosuggestInstance from './AutosuggestInstance'
 
   export default {
     components: {
-      TypeValidationForm
+      TypeValidationForm,
+      AutosuggestInstance
     },
     methods: {
       toggleNavbar () {

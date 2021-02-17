@@ -9,6 +9,9 @@ import Login from 'src/components/Dashboard/Views/Pages/Login.vue'
 import Fundinfo from 'src/components/Dashboard/Views/Pages/Fundinfo.vue'
 import Home from 'src/components/Dashboard/Views/Pages/Home.vue'
 
+// Purchase
+import Purchase from 'src/components/Dashboard/Views/Purchase.vue'
+
 let loginPage = {
   path: '/login',
   name: 'Login',
@@ -31,7 +34,14 @@ const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/admin/overview'
+    redirect: '/admin/overview',
+    children: [
+      {
+        path: 'purchase',
+        name: 'Puchase',
+        component: Purchase
+      }
+    ]
   },
   loginPage,
   fundinfoPage,

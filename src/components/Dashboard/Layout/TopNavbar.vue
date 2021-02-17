@@ -24,15 +24,16 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li class="open">
-            <router-link to="/fundinfo" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
+            <router-link to="/fundinfo" class="btn-magnify" data-toggle="dropdown">
               <i class="ti-panel"></i>
               <p>Fund Recommendations</p>
             </router-link>
           </li>
 
           <li>
-            <router-link to="/login" class="btn-rotate">
+            <router-link to="/login" class="btn-magnify">
               <i class="ti-shift-right"></i>
+              <p>Sign Out</p>
             </router-link>
           </li>
         </ul>
