@@ -1,5 +1,6 @@
 <template>
   <div class='container'>
+    
     <vue-autosuggest
       class='hello'
       ref='autosuggest'
@@ -11,13 +12,13 @@
       @input='fetchResults'
     >
       <template v-slot='{ suggestion }'>
-        <div>{{ suggestion.item.name }}</div>
+        <div>{{ suggestion.item.code }}</div>
       </template>
     </vue-autosuggest>
     <div v-if='selected' style='margin-top: 10px'>
       You have selected:
       <code>
-        <pre>{{selected.name ? selected.name : selected.title}}</pre>
+        <pre>{{selected.code ? selected.code : selected.title}}</pre>
       </code>
     </div>
   </div>
@@ -40,19 +41,19 @@ export default {
       selected: null,
       searchText: '',
       debounceMilliseconds: 50,
-      usersUrl: 'https://jsonplaceholder.typicode.com/users',
+      usersUrl: 'https://codebeautify.org/jsonviewer?url=https://gist.githubusercontent.com/cbmgit/852c2702d4342e7811c95f8ffc2f017f/raw/InsuranceCompanies.json',
       photosUrl: 'https://jsonplaceholder.typicode.com/photos',
       inputProps: {
         id: 'autosuggest__input',
         style: { width: '50%' },
-        placeholder: 'Do you feel lucky, punk?',
+        placeholder: 'Enter fund code',
         class: 'form-control'
       },
       suggestions: [],
       sectionConfigs: {
-        destinations: {
+        fundcode: {
           limit: 6,
-          label: 'Destination',
+          label: 'Fund Code',
           onSelected: selected => {
             this.selected = selected.item
           }
@@ -81,10 +82,10 @@ export default {
           this.suggestions = []
           this.selected = null
 
-          const users = this.filterResults(values[1].data, query, 'name')
+          const users = this.filterResults(values[0].data, query, 'code')
 
           users.length &&
-            this.suggestions.push({ name: 'destinations', data: users })
+            this.suggestions.push({ name: 'fundcode', data: users })
         })
       }, this.debounceMilliseconds)
     },

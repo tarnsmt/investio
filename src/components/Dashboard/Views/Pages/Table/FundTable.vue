@@ -178,6 +178,7 @@ export default{
   },
   methods: {
     handleClick (index, row) {
+      location.href = 'http://localhost:8000/home#/fundinfo'
       alert(`Show information of ${row.code}`)
     }
   }

@@ -3,14 +3,20 @@ import DashboardLayout from '../components/Dashboard/Layout/DashboardLayout.vue'
 import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 // Dashboard pages
 import Overview from 'src/components/Dashboard/Views/Dashboard/Overview.vue'
+import Overviewp from 'src/components/Dashboard/Views/Dashboard/Overviewp.vue'
 
 // Pages
 import Login from 'src/components/Dashboard/Views/Pages/Login.vue'
 import Fundinfo from 'src/components/Dashboard/Views/Pages/Fundinfo.vue'
 import Home from 'src/components/Dashboard/Views/Pages/Home.vue'
+import Survey from 'src/components/Dashboard/Views/Pages/Survey.vue'
+import Surveyresult from 'src/components/Dashboard/Views/Pages/Surveyresult.vue'
 
 // Purchase
 import Purchase from 'src/components/Dashboard/Views/Purchase.vue'
+
+// Redeem
+import Redeem from 'src/components/Dashboard/Views/Redeem.vue'
 
 let loginPage = {
   path: '/login',
@@ -30,6 +36,18 @@ let homePage = {
   component: Home
 }
 
+let survey = {
+  path: '/Survey',
+  name: 'Survey',
+  component: Survey
+}
+
+let surveyresult = {
+  path: '/Surveyresult',
+  name: 'Surveyresult',
+  component: Surveyresult
+}
+
 const routes = [
   {
     path: '/',
@@ -37,15 +55,27 @@ const routes = [
     redirect: '/admin/overview',
     children: [
       {
+        path: 'overviewp',
+        name: 'Portfolio',
+        component: Overviewp
+      },
+      {
         path: 'purchase',
         name: 'Puchase',
         component: Purchase
+      },
+      {
+        path: 'redeem',
+        name: 'Redeem',
+        component: Redeem
       }
     ]
   },
   loginPage,
   fundinfoPage,
   homePage,
+  survey,
+  surveyresult,
   {
     path: '/admin',
     component: DashboardLayout,
@@ -53,7 +83,7 @@ const routes = [
     children: [
       {
         path: 'overview',
-        name: 'Overview',
+        name: 'Portfolio',
         component: Overview
       }
     ]

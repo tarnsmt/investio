@@ -42,8 +42,8 @@
                       <h3 style ="color:#ffffff">Application of Thai Mutual Funds Performance Prediction</h3>
                     </div>
                     <div class="card-footer">
-                           <router-link to="/Login">
-                           <a>
+                      <router-link to="/Login">
+                      <a>
                       <button class="btn btn-warning btn-fill btn-wd btn-no-radius">Mutual Fund Recommendations</button></a>
                      </router-link>
                     </div>
@@ -70,7 +70,7 @@
                       <autosuggest-instance :key="1" />
                       <!-- <input type="text" value="" placeholder="Fund name or ISIN or Tinker" class="form-control"> <span class="input-group-addon"> -->
                       <!-- <i class="fa fa-search"></i> -->
-                      </span>
+                      <!-- </span> -->
                     </div>
                   </form>
                 </div>
@@ -105,14 +105,32 @@
         <div class="content">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+              <div class="col-sm-6 col-md-offset-3 col-sm-offset-3">
                 <form method="#" action="#">
-
                     <div class="card-header">
-                      <h1 style ="color:#f1b93f;font-weight: bold;"><center>INVESTIO</center></h1>
-                      <h3 style ="color:#f1b93f"><center>WELCOME</center></h3>
+                      <h1 style ="color:#f1b93f;font-weight: bold;"><center>FUND SIMULATOR</center></h1>
+                      <h3 style ="color:#f1b93f"><center>Lorem Ipsom</center></h3>
                     </div>
-        
+                    <center><router-link to="/Login"><a>
+                        <button class="btn btn-warning btn-fill btn-wd btn-no-radius">Mutual Fund simulator</button>
+                      </a>
+                      </router-link>
+                    </center>
+                  <!-- </div> -->
+                </form>
+              </div>
+              <div class="col-sm-12">
+                <form method="#" action="#">
+                    <div class="card-header">
+                      <br><br>
+                      <h1 style ="color:#f1b93f;font-weight: bold;"><center>INVESTOR QUESTIONNAITE</center></h1>
+                      <h3 style ="color:#f1b93f"><center>Lorem Ipsom</center></h3>
+                    </div>
+                    <center><router-link to="/survey"><a>
+                        <button class="btn btn-warning btn-fill btn-wd btn-no-radius">Risk Tolerance Survey</button>
+                      </a>
+                      </router-link>
+                    </center>
                   <!-- </div> -->
                 </form>
               </div>

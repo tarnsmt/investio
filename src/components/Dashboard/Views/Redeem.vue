@@ -27,41 +27,25 @@
 
         <fieldset>
           <div class="form-group">
-            <label class="col-sm-4 control-label">Fund Code</label>
-            <div class="col-sm-5">
-              <input type="text"
-                     name="requiredText"
-                     v-validate="modelValidations.requiredText"
-                     v-model="model.requiredText"
-                     class="form-control">
-              <small class="text-danger" v-show="requiredText.invalid">
-                {{ getError('requiredText') }}
-              </small>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <div class="form-group">
             <label class="col-sm-4 control-label">Amount (THB)</label>
             <div class="col-sm-5">
               <input type="number"
-                     name="purchaseAmount"
-                     v-validate="modelValidations.purchaseAmount"
-                     v-model="model.purchaseAmount"
+                     name="redeemAmount"
+                     v-validate="modelValidations.redeemAmount"
+                     v-model="model.redeemAmount"
                      min="20.00"
                      step="0.50"
                      placeholder="0.00"
                      class="form-control">
-              <small class="text-danger" v-show="purchaseAmount.invalid">
-                {{ getError('purchaseAmount') }}
+              <small class="text-danger" v-show="redeemAmount.invalid">
+                {{ getError('redeemAmount') }}
               </small>
             </div>
           </div>
         </fieldset>
       </div>
       <div class="card-footer text-center">
-        <button type="submit" @click.prevent="validate" class="btn btn-fill btn-info btn-wd">Purchase</button>
+        <button type="submit" @click.prevent="validate" class="btn btn-fill btn-info btn-wd">Redeem</button>
       </div>
     </form>
 
@@ -69,13 +53,11 @@
 </template>
 <script>
   import {mapFields} from 'vee-validate'
-  import AutosuggestInstance from './Pages/AutosuggestInstance'
   import swal from 'sweetalert2'
   import {DatePicker, TimeSelect, Slider, Tag, Input, Button, Select, Option} from 'element-ui'
 
   export default {
     components: {
-      AutosuggestInstance,
       [DatePicker.name]: DatePicker,
       [TimeSelect.name]: TimeSelect,
       [Slider.name]: Slider,
@@ -86,7 +68,7 @@
       [Select.name]: Select
     },
     computed: {
-      ...mapFields(['requiredText', 'purchaseAmount'])
+      ...mapFields(['requiredText', 'redeemAmount'])
     },
     data () {
       return {
@@ -116,18 +98,18 @@
         },
         datePicker: '',
         balanceAmount: 10000,
-        // purchaseAmount: 0,
-        // purchaseAmount: 2000,
+        // redeemAmount: 0,
+        // redeemAmount: 2000,
         model: {
           datePicker: '',
           requiredText: '',
-          purchaseAmount: ''
+          redeemAmount: ''
         },
         modelValidations: {
           datePicker: {
             required: true
           },
-          purchaseAmount: {
+          redeemAmount: {
             required: true,
             decimal: true
           }
@@ -147,8 +129,6 @@
             buttonsStyling: false,
             confirmButtonClass: 'btn btn-success btn-fill',
             type: 'success'
-          }).then(function () {
-            window.location = 'http://localhost:8000/#/overviewp'
           })
         })
       }
