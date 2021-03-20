@@ -1,40 +1,7 @@
 <template>
     <div class="row">
       <div class="col-md-12">
-        <div class="card col-md-12">
-          <form class="form-horizontal">
-            <div class="card-content">
-              <fieldset>
-                <div class="form-group">
-                  <div class="col-sm-8  col-md-offset-2 ">
-                    <div class="input-group">
-                      <input type="search" class="form-control input-sm" placeholder="Fund name or ISIN or Tinker" v-model="searchQuery" aria-controls="datatables">
-                      <span class="input-group-addon">
-                      <i class="fa fa-search"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Find</label>
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <input type="text" placeholder="Category" class="form-control">
-                      <span class="input-group-addon"></span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="input-group">
-                      <input type="text" placeholder="AMC" class="form-control">
-                      <span class="input-group-addon"></span>
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-          </form>
+    
           <!------------------------------ fund table ------------------------------------------------>
           <div class="card-content row">
             <!-- <div class="col-sm-6">
@@ -52,7 +19,7 @@
               </el-select>
             </div> -->
 
-            <div class="col-sm-10 col-md-offset-1">
+            <div class="col-sm-8 col-md-offset-2">
               <el-table class="table-striped" 
                         :data="queriedData"
                         border
@@ -63,17 +30,17 @@
                                 :prop="column.prop"
                                 :label="column.label">
                 </el-table-column>
-                <el-table-column
+                <!-- <el-table-column
                   :min-width="120"
                   fixed="right"
                   label="">
                   <template slot-scope="props">
                     <a class="btn btn-simple btn-xs btn-warning btn-icon edit" @click="handleClick(props.$index, props.row)"><i class="ti-stats-up"></i></a>
                   </template>
-                </el-table-column>
+                </el-table-column> -->
               </el-table>
             </div>
-            <div class="col-sm-5 col-md-offset-1 pagination-info">
+            <!-- <div class="col-sm-5 col-md-offset-1 pagination-info">
               <p class="category">Showing {{from + 1}} to {{to}} of {{total}} entries</p>
             </div>
             <div class="col-sm-5 col-md-offset-right-1">
@@ -82,13 +49,10 @@
                             :per-page="pagination.perPage"
                             :total="pagination.total">
               </p-pagination>
-            </div>
+            </div> -->
           </div>
           <!------------------------------end fund table ------------------------------------------------>
-              <div>
-        {{ fundSelect }}
-    </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -96,7 +60,7 @@
 import Vue from 'vue'
 import {Table, TableColumn, Select, Option} from 'element-ui'
 import PPagination from 'src/components/UIComponents/Pagination.vue'
-import fund from './fund'
+import fundRec from './fundRec'
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Select)
@@ -151,7 +115,6 @@ export default{
   },
   data () {
     return {
-      fundSelect: 'ss',
       pagination: {
         perPage: 10,
         currentPage: 1,
@@ -162,28 +125,37 @@ export default{
       propsToSearch: ['code', 'name_th'],
       tableColumns: [
         {
-          prop: 'code',
-          label: 'Code',
-          minWidth: 100
+          prop: 'id',
+          label: '',
+          minWidth: 30
         },
         {
-          prop: 'name_th',
-          label: 'Name',
-          minWidth: 250
+          prop: 'fund',
+          label: 'Fund',
+          minWidth: 80
         },
         {
-          prop: 'nav',
-          label: 'NAV',
-          minWidth: 100
+          prop: 'latest',
+          label: 'Latest',
+          minWidth: 80
+        },
+        {
+          prop: 'return',
+          label: 'Return (3M)',
+          minWidth: 80
+        },
+        {
+          prop: 'accuracy',
+          label: 'Accuracy',
+          minWidth: 80
         }
       ],
-      tableData: fund
+      tableData: fundRec
     }
   },
   methods: {
     handleClick (index, row) {
       location.href = 'http://localhost:8000/home#/fundinfo'
-      this.fundSelect = row.code
       alert(`Show information of ${row.code}`)
     }
   }

@@ -43,8 +43,7 @@
                     </div>
                     <div class="card-footer">
                       <router-link to="/Login">
-                      <a>
-                      <button class="btn btn-warning btn-fill btn-wd btn-no-radius">Mutual Fund Recommendations</button></a>
+                      <a><button class="btn btn-warning btn-fill btn-wd btn-no-radius">Mutual Fund Recommendations</button></a>
                      </router-link>
                     </div>
                   <!-- </div> -->

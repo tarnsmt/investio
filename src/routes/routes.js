@@ -3,7 +3,6 @@ import DashboardLayout from '../components/Dashboard/Layout/DashboardLayout.vue'
 import NotFound from '../components/GeneralViews/NotFoundPage.vue'
 // Dashboard pages
 import Overview from 'src/components/Dashboard/Views/Dashboard/Overview.vue'
-import Overviewp from 'src/components/Dashboard/Views/Dashboard/Overviewp.vue'
 
 // Pages
 import Login from 'src/components/Dashboard/Views/Pages/Login.vue'
@@ -17,6 +16,9 @@ import Purchase from 'src/components/Dashboard/Views/Purchase.vue'
 
 // Redeem
 import Redeem from 'src/components/Dashboard/Views/Redeem.vue'
+
+// Redeem
+import Recommendation from 'src/components/Dashboard/Views/Recommendation/FundRec.vue'
 
 let loginPage = {
   path: '/login',
@@ -55,19 +57,19 @@ const routes = [
     redirect: '/admin/overview',
     children: [
       {
-        path: 'overviewp',
-        name: 'Portfolio',
-        component: Overviewp
-      },
-      {
         path: 'purchase',
-        name: 'Puchase',
+        name: 'Purchase',
         component: Purchase
       },
       {
         path: 'redeem',
         name: 'Redeem',
         component: Redeem
+      },
+      {
+        path: 'recommendation',
+        name: 'Recommendation',
+        component: Recommendation
       }
     ]
   },

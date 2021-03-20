@@ -5,6 +5,11 @@ export default [
     path: '/admin/overview'
   },
   {
+    name: 'Recommendation',
+    icon: 'ti-layout',
+    path: '/recommendation'
+  },
+  {
     name: 'Purchase',
     icon: 'ti-arrow-down',
     path: '/purchase'

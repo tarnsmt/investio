@@ -91,6 +91,11 @@
     data () {
       return {
         pickerOptions1: {
+          disabledDate (time) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24)
+            return time.getTime() < date
+          },
           shortcuts: [{
             text: 'Today',
             onClick (picker) {
@@ -148,7 +153,7 @@
             confirmButtonClass: 'btn btn-success btn-fill',
             type: 'success'
           }).then(function () {
-            window.location = 'http://localhost:8000/#/overviewp'
+            window.location = 'http://localhost:8000/#/overview'
           })
         })
       }

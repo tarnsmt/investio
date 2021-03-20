@@ -10,6 +10,7 @@
             </div>
           </div>
         </fieldset>
+
         <fieldset>
           <div class="form-group">
               <label class="col-sm-4 control-label">Effective Date</label>
@@ -21,6 +22,23 @@
                     </el-date-picker>
                   </div>
                </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Fund Code</label>
+            <div class="col-sm-5">
+              <!-- <input type="text"
+                     name="requiredText"
+                     v-validate="modelValidations.requiredText"
+                     v-model="model.requiredText"
+                     class="form-control"> -->
+              <input type="text" value="SPOT33P7" class="form-control"/>
+              <small class="text-danger" v-show="requiredText.invalid">
+                {{ getError('requiredText') }}
+              </small>
             </div>
           </div>
         </fieldset>
@@ -57,6 +75,7 @@
   import {DatePicker, TimeSelect, Slider, Tag, Input, Button, Select, Option} from 'element-ui'
 
   export default {
+    props: ['fundSelectSell'],
     components: {
       [DatePicker.name]: DatePicker,
       [TimeSelect.name]: TimeSelect,
@@ -73,6 +92,11 @@
     data () {
       return {
         pickerOptions1: {
+          disabledDate (time) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24)
+            return time.getTime() < date
+          },
           shortcuts: [{
             text: 'Today',
             onClick (picker) {
